@@ -11,17 +11,17 @@ public class RunningState : IGameState
 
     public void EnterState()
     {
-        Debug.Log("enter walk");
+        Debug.Log("enter Run");
     }
 
     public void ExitState()
     {
-        Debug.Log("exit walk");
+        Debug.Log("exit Run");
     }
 
     public void UpdateState()
     {
-        if (player.GetIsStop())
+        if (!player.GetIsStop())
             player.HandleMove();
     }
 }
