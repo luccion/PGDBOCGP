@@ -7,4 +7,5 @@ public interface ICreatureController
     string Name { get; }
     bool GetLucky();
     Transform CreatureTransform { get; }
+    StateMachine StateMachine { get; }
 }

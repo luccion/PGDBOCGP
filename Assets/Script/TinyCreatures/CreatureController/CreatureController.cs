@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class CreatureController : MonoBehaviour, ICreatureController
@@ -15,6 +16,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
     [SerializeField] float speed;
     [SerializeField] float maxSpeed;
     [SerializeField] int acceleration;
+    [SerializeField] int lucky;
 
     [Header("互动")]
     [SerializeField] float pickupRadius = 5f;
@@ -23,17 +25,17 @@ public class CreatureController : MonoBehaviour, ICreatureController
     private StateMachine playerStateMachine;
     [Header("当前状态")]
     bool isStop;
-
     public Transform PlayerTransform => transform;
-
     public string Name => _name;
     public Transform CreatureTransform => transform;
+
+    public StateMachine StateMachine => playerStateMachine;
+
     public void TransitionTo(CreatureState gameState) => playerStateMachine.TransitionTo(gameState);
     [SerializeField] Vector2 moveDelta;
     private void Awake()
     {
         inputControl = new PlayerInputActions();
-        //定义一个背包
         inputControl.Enable();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -42,9 +44,12 @@ public class CreatureController : MonoBehaviour, ICreatureController
         maxSpeed = tinyCreature.MaxSpeed;
         acceleration = tinyCreature.Acceleration;
         _name = tinyCreature.name;
+        lucky = tinyCreature.Lucky;
+        //初始化状态机
         playerStateMachine = new StateMachine(this);
         playerStateMachine.Initialize(CreatureState.RUN);
     }
+
     private void Update()
     {
         playerStateMachine.Update();
@@ -85,6 +90,13 @@ public class CreatureController : MonoBehaviour, ICreatureController
         //     unit.flipX = false;
         // }
     }
+    public void SetSpeed(int speed)
+    {
+        // 将物体的线性速度和角速度设为零
+        rb.velocity = speed * transform.right;
+        rb.angularVelocity = speed;
+
+    }
     // bool GetLuck()
     // {
     //     int random = Random.Range(0, 10);
@@ -120,10 +132,36 @@ public class CreatureController : MonoBehaviour, ICreatureController
         // }
         // inputControl.Enable();
     }
-
+    IEnumerator Stoper(int speed, float second)
+    {
+        SetSpeed(speed);
+        yield return new WaitForSeconds(speed);
+        TransitionTo(CreatureState.RUN);
+    }
+    public void SetStop()
+    {
+        StartCoroutine(Stoper(0, 2f));
+    }
     public bool GetLucky()
     {
-        throw new System.NotImplementedException();
+        int random = Random.Range(0, 10);
+        if (lucky > random)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("encounter");
+        if (other.TryGetComponent<Interaction>(out Interaction i))
+        {
+            //自动互动
+            i.OnInteract(this);
+        }
     }
 }
 

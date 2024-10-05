@@ -7,7 +7,8 @@ public enum CreatureState
     BATTLE,
     IDLE,
     RUN,
-    JUMP
+    JUMP,
+    BLOCK,
 }
 /// <summary>
 /// FSM 状态机
@@ -20,7 +21,7 @@ public class StateMachine
     // reference to the state objects
     public RunningState runState;
     public JumpState jumpState;
-
+    public BlockState blockState;
     // event to notify other objects of the state change
     public event Action<IGameState> stateChanged;
 
@@ -30,6 +31,7 @@ public class StateMachine
         // create an instance for each state and pass in PlayerController
         runState = new RunningState(player);
         jumpState = new JumpState(player);
+        blockState = new BlockState(player);
         // this.idleState = new IdleState(player);
     }
 
@@ -73,6 +75,8 @@ public class StateMachine
                 return runState;
             case CreatureState.JUMP:
                 return jumpState;
+            case CreatureState.BLOCK:
+                return blockState;
             default:
                 return null;
         }

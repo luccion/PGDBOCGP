@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9e29707b161fe4ba8b09814e7c6422, type: 3}
   m_Name: TinyCreatureSO2
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Mona
   tinyPersona: 0
   _acceleration: 8
   _lucky: 5
