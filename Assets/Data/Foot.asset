@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9e29707b161fe4ba8b09814e7c6422, type: 3}
   m_Name: Foot
   m_EditorClassIdentifier: 
-  _name: 
-  tinyPersona: 0
+  _name: Foot
   _acceleration: 1
   _lucky: 5
   _health: 5
-  _maxSpeed: 10
+  _maxSpeed: 7
+  bloodColor: {r: 1, g: 0, b: 0, a: 1}

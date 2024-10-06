@@ -14,7 +14,7 @@ public class BlockState : IGameState
     public void EnterState()
     {
         Debug.Log("jump");
-        player.SetStop();
+
     }
 
     public void ExitState()

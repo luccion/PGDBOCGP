@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9e29707b161fe4ba8b09814e7c6422, type: 3}
   m_Name: Nacho
   m_EditorClassIdentifier: 
-  _name: B
+  _name: Nacho
   tinyPersona: 0
   _acceleration: 1
   _lucky: 1
   _health: 4
   _maxSpeed: 8
-  creatureController: {fileID: 8521601302988924784, guid: ad93523f80abaf945b9931615808eaf5, type: 3}

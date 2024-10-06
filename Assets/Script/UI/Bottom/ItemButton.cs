@@ -8,16 +8,26 @@ using UnityEngine.EventSystems;
 /// </summary> <summary>
 /// 
 /// </summary>
-public class ItemButton : MonoBehaviour, IDragHandler
+public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField]
     GameObject theItem;
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+    }
+
     public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log("zzzz");
+    }
+
+    public void OnDragEnd(PointerEventData eventData)
     {
 
     }
 
-    public void OnDragEnd(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)
     {
         // 获取鼠标在屏幕上的位置
         Vector3 screenPosition = eventData.position;
@@ -30,5 +40,6 @@ public class ItemButton : MonoBehaviour, IDragHandler
 
         // 在指定位置生成物体
         GameObject obj = Instantiate(theItem, worldPosition, Quaternion.identity);
+        Debug.Log("" + obj.name);
     }
 }

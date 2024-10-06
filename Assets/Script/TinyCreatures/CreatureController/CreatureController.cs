@@ -45,7 +45,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
 
     public void TransitionTo(CreatureState gameState) => playerStateMachine.TransitionTo(gameState);
     [SerializeField] Vector2 moveDelta;
-
+    [SerializeField] bool isMuteki = false;
 
     private void Awake()
     {
@@ -106,7 +106,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
         if (currentSpeed < maxSpeed)
         {
             // 计算加速方向
-            Vector3 direction = transform.right;
+            Vector3 direction = Vector2.right;
 
             // 添加加速度
             rb.AddForce(direction * acceleration);
@@ -131,7 +131,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
     public void SetSpeed(int speed)
     {
         // 将物体的线性速度和角速度设为零
-        rb.velocity = speed * transform.right;
+        rb.velocity = speed * Vector2.right;
         rb.angularVelocity = speed;
 
     }
@@ -165,18 +165,9 @@ public class CreatureController : MonoBehaviour, ICreatureController
         // }
         // inputControl.Enable();
     }
-    IEnumerator Stoper(int speed, float second)
-    {
-        SetSpeed(speed);
-        yield return new WaitForSeconds(speed);
-        TransitionTo(CreatureState.RUN);
-    }
-    public void SetStop()
-    {
-        StartCoroutine(Stoper(0, 2f));
-    }
     public bool GetLucky()
     {
+        if (isMuteki) return true;
         int random = UnityEngine.Random.Range(0, 10);
         if (lucky > random)
         {
@@ -195,6 +186,18 @@ public class CreatureController : MonoBehaviour, ICreatureController
             //自动互动
             i.OnInteract(this);
         }
+    }
+
+    public bool GetMuteki()
+    {
+        return false;
+    }
+
+    public void RunCoroutine(IEnumerator coroutine)
+    {
+
+        StartCoroutine(coroutine);
+
     }
 }
 
