@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &909032029041515851
@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 6444864798153958697}
   - component: {fileID: 6470747172789711786}
   - component: {fileID: 8521601302988924784}
+  - component: {fileID: 7547101074236048932}
   m_Layer: 6
   m_Name: "\u4E2B\u5934"
   m_TagString: Untagged
@@ -326,6 +327,18 @@ MonoBehaviour:
   lucky: 0
   pickupRadius: 5
   moveDelta: {x: 0, y: 0}
+--- !u!210 &7547101074236048932
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951080597486642009}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &2211376156125567206
 GameObject:
   m_ObjectHideFlags: 0

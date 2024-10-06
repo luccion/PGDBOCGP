@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 6444864798153958697}
   - component: {fileID: 6470747172789711786}
   - component: {fileID: 8521601302988924784}
+  - component: {fileID: 6174553046115286716}
   m_Layer: 6
   m_Name: "\u82F9\u679C"
   m_TagString: Untagged
@@ -326,6 +327,18 @@ MonoBehaviour:
   lucky: 0
   pickupRadius: 5
   moveDelta: {x: 0, y: 0}
+--- !u!210 &6174553046115286716
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951080597486642009}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &2211376156125567206
 GameObject:
   m_ObjectHideFlags: 0
