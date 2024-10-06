@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class CreatureController : MonoBehaviour, ICreatureController
@@ -9,6 +9,16 @@ public class CreatureController : MonoBehaviour, ICreatureController
     [Header("组件")] Rigidbody2D rb;
     Animator animator;
     [SerializeField] SpriteRenderer unit;
+
+    [Header("显示")]
+    [SerializeField] EyeType eyeType = EyeType.BigEyes;
+    public enum EyeType
+    {
+        BigEyes,
+        BigBlueEyes,
+        WiseEyes,
+        NoEyes,
+    }
 
     [Header("预设")]
     [SerializeField] string _name;
@@ -33,6 +43,8 @@ public class CreatureController : MonoBehaviour, ICreatureController
 
     public void TransitionTo(CreatureState gameState) => playerStateMachine.TransitionTo(gameState);
     [SerializeField] Vector2 moveDelta;
+
+
     private void Awake()
     {
         inputControl = new PlayerInputActions();
@@ -48,6 +60,25 @@ public class CreatureController : MonoBehaviour, ICreatureController
         //初始化状态机
         playerStateMachine = new StateMachine(this);
         playerStateMachine.Initialize(CreatureState.RUN);
+
+        //初始化眼睛状态机
+        switch (eyeType)
+        {
+            case EyeType.BigEyes:
+                break;
+            case EyeType.BigBlueEyes:
+                break;
+            case EyeType.WiseEyes:
+                break;
+            case EyeType.NoEyes:
+                break;
+            default:
+                break;
+        }
+        //设置动画状态机
+
+
+
     }
 
     private void Update()
@@ -144,7 +175,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
     }
     public bool GetLucky()
     {
-        int random = Random.Range(0, 10);
+        int random = UnityEngine.Random.Range(0, 10);
         if (lucky > random)
         {
             return true;
