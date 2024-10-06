@@ -59,6 +59,9 @@ public class CreatureController : MonoBehaviour, ICreatureController
         acceleration = tinyCreature.Acceleration;
         _name = tinyCreature.Name;
         lucky = tinyCreature.Lucky;
+
+        Debug.Log(tinyCreature.);
+
         //初始化状态机
         playerStateMachine = new StateMachine(this);
         playerStateMachine.Initialize(CreatureState.IDLE);
