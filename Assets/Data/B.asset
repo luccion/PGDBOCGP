@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be9e29707b161fe4ba8b09814e7c6422, type: 3}
-  m_Name: TinyCreatureSO2
+  m_Name: B
   m_EditorClassIdentifier: 
-  _name: Mona
+  _name: B
   tinyPersona: 0
-  _acceleration: 8
-  _lucky: 5
-  _health: 5
-  _maxSpeed: 5
+  _acceleration: 1
+  _lucky: 1
+  _health: 4
+  _maxSpeed: 8
+  creatureController: {fileID: 8521601302988924784, guid: ad93523f80abaf945b9931615808eaf5, type: 3}

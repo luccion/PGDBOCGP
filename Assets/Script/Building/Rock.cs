@@ -9,13 +9,12 @@ public class Rock : Interaction
         //如果足够幸运
         if (creatureController.GetLucky())
         {
-            // Debug.Log(creatureController.Name + "lucky");
-
+            Debug.Log(creatureController.Name + " lucky");
         }
         else
         {
             creatureController.StateMachine.TransitionTo(CreatureState.BLOCK);
-            Debug.Log(creatureController.Name + "unlucky");
+            Debug.Log(creatureController.Name + " unlucky");
         }
 
         Debug.Log("oops");

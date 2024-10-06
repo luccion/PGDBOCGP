@@ -19,6 +19,7 @@ public class StateMachine
     public IGameState CurrentState { get; private set; }
     public CreatureState currentState;
     // reference to the state objects
+    public IdleState idleState;
     public RunningState runState;
     public JumpState jumpState;
     public BlockState blockState;
@@ -29,6 +30,7 @@ public class StateMachine
     public StateMachine(CreatureController player)
     {
         // create an instance for each state and pass in PlayerController
+        idleState = new IdleState(player);
         runState = new RunningState(player);
         jumpState = new JumpState(player);
         blockState = new BlockState(player);
@@ -77,6 +79,8 @@ public class StateMachine
                 return jumpState;
             case CreatureState.BLOCK:
                 return blockState;
+            case CreatureState.IDLE:
+                return idleState;
             default:
                 return null;
         }

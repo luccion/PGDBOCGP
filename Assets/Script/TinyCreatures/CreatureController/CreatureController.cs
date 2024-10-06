@@ -55,11 +55,11 @@ public class CreatureController : MonoBehaviour, ICreatureController
         speed = tinyCreature.Acceleration;
         maxSpeed = tinyCreature.MaxSpeed;
         acceleration = tinyCreature.Acceleration;
-        _name = tinyCreature.name;
+        _name = tinyCreature.Name;
         lucky = tinyCreature.Lucky;
         //初始化状态机
         playerStateMachine = new StateMachine(this);
-        playerStateMachine.Initialize(CreatureState.RUN);
+        playerStateMachine.Initialize(CreatureState.IDLE);
 
         //初始化眼睛状态机
         switch (eyeType)
@@ -76,20 +76,25 @@ public class CreatureController : MonoBehaviour, ICreatureController
                 break;
         }
         //设置动画状态机
-
-
-
     }
+
 
     private void Update()
     {
         playerStateMachine.Update();
     }
+    public void LoadData(TinyCreatureSO tinyCreature)
+    {
+        speed = tinyCreature.Acceleration;
+        maxSpeed = tinyCreature.MaxSpeed;
+        acceleration = tinyCreature.Acceleration;
+        _name = tinyCreature.Name;
+        lucky = tinyCreature.Lucky;
+    }
     public bool GetIsStop()
     {
         return false;
     }
-
     public void HandleMove()
     {
         // 当前速度的大小（忽略方向）
@@ -128,11 +133,6 @@ public class CreatureController : MonoBehaviour, ICreatureController
         rb.angularVelocity = speed;
 
     }
-    // bool GetLuck()
-    // {
-    //     int random = Random.Range(0, 10);
-
-    // }
     /// <summary>
     /// 播放互动动画
     /// </summary>
