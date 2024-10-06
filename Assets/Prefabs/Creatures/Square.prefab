@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 98f6768fd8c254646b271775849e36a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 458cec6475708ec4a8798728748a21a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1951080597486642009
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,10 +185,10 @@ GameObject:
   - component: {fileID: 3398033080699903194}
   - component: {fileID: 6470747172789711786}
   - component: {fileID: 8521601302988924784}
-  - component: {fileID: -4580808450251933497}
-  - component: {fileID: 4899866569485789899}
+  - component: {fileID: -3219167004073514664}
+  - component: {fileID: 5891140681888821036}
   m_Layer: 6
-  m_Name: "\u5154\u5934"
+  m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,9 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c30c40a483ff9f42a549cedaee54d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tinyCreature: {fileID: 11400000, guid: 27f17e4094bd7fd4e93797fad21e4eba, type: 2}
+  tinyCreature: {fileID: 11400000, guid: b55bb239f61763e4facecdecba37c262, type: 2}
   unit: {fileID: 0}
-  eyeType: 1
+  eyeType: 0
   _name: 
   jumpForce: 0
   speed: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   lucky: 0
   pickupRadius: 5
   moveDelta: {x: 0, y: 0}
---- !u!210 &-4580808450251933497
+--- !u!210 &-3219167004073514664
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,7 +294,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!70 &4899866569485789899
+--- !u!70 &5891140681888821036
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,8 +326,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11555195, y: -0.024187565}
-  m_Size: {x: 3, y: 6.3606176}
+  m_Offset: {x: 0.11555195, y: -0.7382107}
+  m_Size: {x: 3, y: 4.7883253}
   m_Direction: 0
 --- !u!1 &2211376156125567206
 GameObject:
@@ -681,29 +681,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eyes
       objectReference: {fileID: 0}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 905212808, guid: 47792b8d7eefb5a4a8bd25e965a1a13d, type: 3}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9983352
-      objectReference: {fileID: 0}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9858491
-      objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.16
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.z

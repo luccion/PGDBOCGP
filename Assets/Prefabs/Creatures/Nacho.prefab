@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c30c40a483ff9f42a549cedaee54d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tinyCreature: {fileID: 11400000, guid: 27f17e4094bd7fd4e93797fad21e4eba, type: 2}
+  tinyCreature: {fileID: 11400000, guid: b1080f5c39caa6b43955a8609a50941d, type: 2}
   unit: {fileID: 0}
   eyeType: 3
   _name: 

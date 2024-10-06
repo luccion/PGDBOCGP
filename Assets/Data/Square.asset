@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be9e29707b161fe4ba8b09814e7c6422, type: 3}
-  m_Name: D
+  m_Name: Square
   m_EditorClassIdentifier: 
-  _name: D
+  _name: 
   tinyPersona: 0
-  _acceleration: 8
+  _acceleration: 1
   _lucky: 5
   _health: 5
-  _maxSpeed: 5
-  creatureController: {fileID: 8521601302988924784, guid: c6512d300d0c6db4681fd13175dbec36, type: 3}
+  _maxSpeed: 10

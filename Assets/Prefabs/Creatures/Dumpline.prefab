@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: bec7c953fe277994b945695184672c2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf7ff237576fc704cb0273774b8bee9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -185,10 +185,10 @@ GameObject:
   - component: {fileID: 3398033080699903194}
   - component: {fileID: 6470747172789711786}
   - component: {fileID: 8521601302988924784}
-  - component: {fileID: -677051141784058502}
-  - component: {fileID: -2136569221694465474}
+  - component: {fileID: -3541453711371380172}
+  - component: {fileID: -4626667951421260302}
   m_Layer: 6
-  m_Name: "\u5C0F\u5706"
+  m_Name: Dumpline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c30c40a483ff9f42a549cedaee54d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tinyCreature: {fileID: 11400000, guid: 27f17e4094bd7fd4e93797fad21e4eba, type: 2}
+  tinyCreature: {fileID: 11400000, guid: ba848735994e0494f941650dd9048c97, type: 2}
   unit: {fileID: 0}
   eyeType: 0
   _name: 
@@ -282,7 +282,7 @@ MonoBehaviour:
   lucky: 0
   pickupRadius: 5
   moveDelta: {x: 0, y: 0}
---- !u!210 &-677051141784058502
+--- !u!210 &-3541453711371380172
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,7 +294,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!70 &-2136569221694465474
+--- !u!70 &-4626667951421260302
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,8 +326,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11555195, y: -0.38480592}
-  m_Size: {x: 3, y: 5.466286}
+  m_Offset: {x: 0.11555195, y: -0.7454231}
+  m_Size: {x: 3, y: 4.80275}
   m_Direction: 0
 --- !u!1 &2211376156125567206
 GameObject:
@@ -683,11 +683,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.277
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.564
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.z

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be9e29707b161fe4ba8b09814e7c6422, type: 3}
-  m_Name: A
+  m_Name: Eye
   m_EditorClassIdentifier: 
-  _name: A
-  tinyPersona: 1
-  _acceleration: 3
+  _name: 
+  tinyPersona: 0
+  _acceleration: 1
   _lucky: 5
   _health: 5
-  _maxSpeed: 6
-  creatureController: {fileID: 8521601302988924784, guid: 4bcaec49a1fffdd4685717de15b8443f, type: 3}
+  _maxSpeed: 10

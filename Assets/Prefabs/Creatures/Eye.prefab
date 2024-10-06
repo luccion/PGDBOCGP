@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9729c06492cc49a40832db246d606c38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25e66f7c6100be5448bc539f5c1fa068, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1951080597486642009
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,10 +185,10 @@ GameObject:
   - component: {fileID: 3398033080699903194}
   - component: {fileID: 6470747172789711786}
   - component: {fileID: 8521601302988924784}
-  - component: {fileID: 7946362950984858452}
-  - component: {fileID: -4823490130592068872}
+  - component: {fileID: 6852441376801341734}
+  - component: {fileID: -3329791523397343500}
   m_Layer: 6
-  m_Name: "\u9EA6\u742A"
+  m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,9 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c30c40a483ff9f42a549cedaee54d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tinyCreature: {fileID: 11400000, guid: 27f17e4094bd7fd4e93797fad21e4eba, type: 2}
+  tinyCreature: {fileID: 11400000, guid: dbd1b841c7920e7419416dbafaceb01b, type: 2}
   unit: {fileID: 0}
-  eyeType: 2
+  eyeType: 3
   _name: 
   jumpForce: 0
   speed: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   lucky: 0
   pickupRadius: 5
   moveDelta: {x: 0, y: 0}
---- !u!210 &7946362950984858452
+--- !u!210 &6852441376801341734
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,7 +294,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!70 &-4823490130592068872
+--- !u!70 &-3329791523397343500
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,8 +326,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11555195, y: -0.73534083}
-  m_Size: {x: 3, y: 4.7825856}
+  m_Offset: {x: 0.11555195, y: -1.2430756}
+  m_Size: {x: 3, y: 3.663197}
   m_Direction: 0
 --- !u!1 &2211376156125567206
 GameObject:
@@ -683,31 +683,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2098488697050131798, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1547921819, guid: 283be86478c7f404c8690f6ba2c68ece, type: 3}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9983352
-      objectReference: {fileID: 0}
-    - target: {fileID: 3681853031472508371, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9858491
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.33
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.43
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 5638544144655533954, guid: 806cd135999eb7d4e9b36b3d448f9c43, type: 3}
       propertyPath: m_LocalPosition.z

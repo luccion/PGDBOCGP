@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be9e29707b161fe4ba8b09814e7c6422, type: 3}
-  m_Name: E
+  m_Name: PizzaGuy
   m_EditorClassIdentifier: 
-  _name: E
+  _name: C
   tinyPersona: 0
-  _acceleration: 3
-  _lucky: 0
-  _health: 5
+  _acceleration: 2
+  _lucky: 7
+  _health: 3
   _maxSpeed: 6
-  creatureController: {fileID: 8521601302988924784, guid: 38c76dbf4e8fdc04e90b870b0fbcdc3d, type: 3}
+  creatureController: {fileID: 8521601302988924784, guid: 625a00b0c51f3a14b881313d7d47f5de, type: 3}
