@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Square
   m_EditorClassIdentifier: 
   _name: Square
-  tinyPersona: 0
   _acceleration: 1
   _lucky: 5
   _health: 5
   _maxSpeed: 10
+  bloodColor: {r: 0.86666673, g: 0.2901961, b: 0.2901961, a: 1}

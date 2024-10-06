@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: N0K14-3310
   m_EditorClassIdentifier: 
   _name: N0K14-3310
-  tinyPersona: 1
   _acceleration: 3
   _lucky: 5
   _health: 5
   _maxSpeed: 6
+  bloodColor: {r: 0.23137257, g: 0.38823533, b: 0.7294118, a: 1}

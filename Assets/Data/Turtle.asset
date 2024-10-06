@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Turtle
   m_EditorClassIdentifier: 
   _name: Turtle
-  tinyPersona: 0
   _acceleration: 1
   _lucky: 5
   _health: 5
   _maxSpeed: 10
+  bloodColor: {r: 0.3529412, g: 0.5686275, b: 0.17254902, a: 1}

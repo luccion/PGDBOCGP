@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Nacho
   m_EditorClassIdentifier: 
   _name: Nacho
-  tinyPersona: 0
   _acceleration: 1
   _lucky: 1
   _health: 4
   _maxSpeed: 8
+  bloodColor: {r: 0.8313726, g: 0.6509804, b: 0.22352943, a: 1}

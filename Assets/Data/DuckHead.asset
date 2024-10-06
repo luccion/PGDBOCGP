@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DuckHead
   m_EditorClassIdentifier: 
   _name: DuckHead
-  tinyPersona: 0
   _acceleration: 8
   _lucky: 5
   _health: 5
   _maxSpeed: 5
+  bloodColor: {r: 0.81568635, g: 0.81568635, b: 0.81568635, a: 1}

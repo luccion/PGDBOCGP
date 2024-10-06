@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   _name: Fish
-  tinyPersona: 0
   _acceleration: 1
   _lucky: 5
   _health: 5
   _maxSpeed: 10
+  bloodColor: {r: 0.2392157, g: 0.67058825, b: 0.627451, a: 1}

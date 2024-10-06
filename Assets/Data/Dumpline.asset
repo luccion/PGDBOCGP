@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Dumpline
   m_EditorClassIdentifier: 
   _name: Dumpline
-  tinyPersona: 0
   _acceleration: 1
   _lucky: 5
   _health: 5
   _maxSpeed: 10
+  bloodColor: {r: 0.8313726, g: 0.47058827, b: 0.53333336, a: 1}
