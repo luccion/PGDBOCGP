@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3681853031472508371}
   - component: {fileID: 5640667793314413779}
   m_Layer: 6
-  m_Name: Eyes
+  m_Name: "\u777F\u667A\u4E4B\u773C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 129362312, guid: 97d190794a6bbda42b80d3c526c0f495, type: 3}
+  m_Sprite: {fileID: -1547921819, guid: 283be86478c7f404c8690f6ba2c68ece, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 2098488697050131798}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fdf773adbd2680645bf6dc4acdba592b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9afcc15333b26094792ba9281cb088ac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

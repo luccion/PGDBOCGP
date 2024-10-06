@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "LD56.sln"
+    "dotnet.defaultSolution": "LD56.sln",
+    "favorites.resources": []
 }
