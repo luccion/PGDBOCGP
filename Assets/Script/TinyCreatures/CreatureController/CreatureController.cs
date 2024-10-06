@@ -7,8 +7,9 @@ public class CreatureController : MonoBehaviour, ICreatureController
     [Header("数据")]
     [SerializeField] TinyCreatureSO tinyCreature;
     [Header("组件")] Rigidbody2D rb;
-    Animator animator;
+    [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer unit;
+
 
     [Header("显示")]
     [SerializeField] EyeType eyeType = EyeType.BigEyes;
@@ -43,8 +44,10 @@ public class CreatureController : MonoBehaviour, ICreatureController
 
     public TinyCreatureSO tinyCreatureSO => tinyCreature;
 
+    public Animator Animator => animator;
+
     public void TransitionTo(CreatureState gameState) => playerStateMachine.TransitionTo(gameState);
-    [SerializeField] Vector2 moveDelta;
+
     [SerializeField] bool isMuteki = false;
 
     private void Awake()
@@ -60,7 +63,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
         _name = tinyCreature.Name;
         lucky = tinyCreature.Lucky;
 
-        Debug.Log(tinyCreature.);
+
 
         //初始化状态机
         playerStateMachine = new StateMachine(this);
@@ -120,8 +123,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
                 rb.velocity = rb.velocity.normalized * maxSpeed; // 设置速度为最大值，保持方向
             }
         }
-        animator.SetFloat("moveX", moveDelta.x);
-        animator.SetFloat("moveY", moveDelta.y);
+
         // if (moveDelta.x < 0)//left
         // {
         //     unit.flipX = true;

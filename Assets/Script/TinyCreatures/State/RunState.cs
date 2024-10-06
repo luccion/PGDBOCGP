@@ -11,6 +11,7 @@ public class RunningState : IGameState
 
     public void EnterState()
     {
+        player.Animator.SetTrigger("Run");
         Debug.Log("enter Run");
     }
 

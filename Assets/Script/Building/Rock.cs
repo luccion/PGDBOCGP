@@ -15,12 +15,15 @@ public class Rock : Interaction
         //如果足够幸运
         if (creatureController.GetLucky())
         {
+            creatureController.Animator.SetTrigger("Jump");
+            creatureController.Animator.SetTrigger("Fall");
             Debug.Log(creatureController.Name + " lucky");
             yield break;
         }
         else
         {
             creatureController.StateMachine.TransitionTo(CreatureState.BLOCK);
+
             creatureController.SetSpeed(0);
             yield return new WaitForSeconds(0.2f);
             creatureController.StateMachine.TransitionTo(CreatureState.RUN);

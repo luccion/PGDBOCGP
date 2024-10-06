@@ -19,7 +19,6 @@ public class Banana : Item
         }
         else
         {
-            isUsed = true;
             return false;
         }
 
@@ -27,29 +26,14 @@ public class Banana : Item
     }
     IEnumerator BlockCoroutine(ICreatureController creatureController)
     {
-        // 获取当前的 Z 轴旋转角度
-        float startRotation = creatureController.CreatureTransform.eulerAngles.z;
-        float endRotation = startRotation + 360; // 目标 Z 轴旋转 360 度
-        float rotationDuration = 0.5f; // 旋转持续时间
-        float elapsedTime = 0f;
-
-
+        isUsed = true;
         creatureController.StateMachine.TransitionTo(CreatureState.BLOCK);
         creatureController.SetSpeed(0);
-
-        // 在 rotationDuration 时间内逐步旋转
-        while (elapsedTime < rotationDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / rotationDuration;
-
-            // 逐帧更新 Z 轴的旋转角度
-            float currentZRotation = Mathf.Lerp(startRotation, endRotation, t);
-            creatureController.CreatureTransform.eulerAngles = new Vector3(0, 0, currentZRotation);
-
-            yield return null; // 等待下一帧
-        }
-        yield return new WaitForSeconds(rotationDuration);
+        //creatureController.Animator.SetTrigger("Roll");
+        creatureController.Animator.SetTrigger("Rolling");
+        yield return new WaitForSeconds(2f);
+        creatureController.Animator.SetTrigger("EndRoll");
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
         creatureController.StateMachine.TransitionTo(CreatureState.RUN);
 
