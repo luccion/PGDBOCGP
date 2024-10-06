@@ -8,12 +8,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<TinyCreatureSO> tinyCreatureSOs;
     [SerializeField] List<Transform> BirthPoint;
     List<CreatureController> creatureControllers;
-    [SerializeField] UnityAction OnReady;
-    [SerializeField] UnityAction OnStartRun;
+    [SerializeField] VoidEvent OnReady;
+    [SerializeField] SelectEvent OnStartRun;
+    [SerializeField] SelectEvent OnWinEvent;
+    [SerializeField] SelectEvent OnLoseEvent;
     // Start is called before the first frame update
+    private void OnEnable()
+    {
+        OnReady.Register(PlayerReady);
+        OnStartRun.Register(RunGameCoroutine);
+        OnWinEvent.Register(OnWin);
+        OnLoseEvent.Register(OnLose);
+    }
+    private void OnDisable()
+    {
+        OnReady.Unregister(PlayerReady);
+        OnStartRun.Unregister(RunGameCoroutine);
+        OnWinEvent.Register(OnWin);
+        OnLoseEvent.Register(OnLose);
+    }
     void Start()
     {
-        PlayerReady();
+        //触发准备事件
+        OnReady.Invoke();
     }
 
     // Update is called once per frame
@@ -49,14 +66,13 @@ public class GameManager : MonoBehaviour
         }
         return creatureControllers;
     }
-    public void RunGameCoroutine()
+    public void RunGameCoroutine(ICreatureController creatureController)
     {
         StartCoroutine(RunGame());
     }
     public IEnumerator RunGame()
     {
         yield return new WaitForSeconds(2f);
-        OnStartRun?.Invoke();
 
         foreach (var tiny in creatureControllers)
         {
@@ -66,6 +82,14 @@ public class GameManager : MonoBehaviour
     void PlayerReady()
     {
         creatureControllers = GenerateCreature();
-        OnReady?.Invoke();
     }
+    void OnWin(ICreatureController creatureController)
+    {
+        Debug.Log(creatureController.Name + "win");
+    }
+    void OnLose(ICreatureController creatureController)
+    {
+        Debug.Log(creatureController.Name + "lose");
+    }
+
 }

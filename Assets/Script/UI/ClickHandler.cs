@@ -3,21 +3,25 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using Cinemachine;
+using Unity.VisualScripting;
 
 public class ClickHandler : MonoBehaviour
 {
     public Camera mainCamera;
     PlayerInputActions playerInputs;
-    public UnityEvent<ICreatureController> OnSelectCreature;
+    public VoidEvent ReadyEvent;
+    public SelectEvent StartRunEvent;
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     private void OnEnable()
     {
         playerInputs.Player.Click.performed += OnClickPerformed;
+        StartRunEvent.Register(HandleClickOnCreature);
     }
 
     private void OnDisable()
     {
         playerInputs.Player.Click.performed -= OnClickPerformed;
+        StartRunEvent.Unregister(HandleClickOnCreature);
     }
     private void Awake()
     {
@@ -77,7 +81,7 @@ public class ClickHandler : MonoBehaviour
                 //处理camera
                 HandleClickOnCreature(creature);
                 //触发其他事件
-                OnSelectCreature?.Invoke(creature);
+                StartRunEvent?.Invoke(creature);
                 Debug.Log("Clicked on: " + clickedObject.name);
             }
             else

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "TinyCreatureSO", menuName = "TinyCreatureSO", order = 0)]
+[CreateAssetMenu(fileName = "TinyCreatureSO", menuName = "Data/TinyCreatureSO", order = 0)]
 public class TinyCreatureSO : ScriptableObject
 {
     [SerializeField] string _name;
