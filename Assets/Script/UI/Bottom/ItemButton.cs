@@ -10,12 +10,16 @@ using UnityEngine.UI;
 public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] Item theItem;
-    Image image;
+    [SerializeField] Image image;
     bool isDragging = false;
     GameObject current;
     private void Start()
     {
-        image = GetComponent<Image>();
+
+
+    }
+    public void Load(Item theItem)
+    {
         image.sprite = theItem.spriteRenderer.sprite;
     }
     public void OnBeginDrag(PointerEventData eventData)

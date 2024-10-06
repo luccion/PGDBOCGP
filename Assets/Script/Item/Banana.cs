@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Banana : Item
 {
+    [SerializeField] int ID;
     public override int price { get => base.price; }
     public override bool OnInteract(ICreatureController creatureController)
     {
