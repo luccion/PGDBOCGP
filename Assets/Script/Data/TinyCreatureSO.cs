@@ -15,7 +15,6 @@ public class TinyCreatureSO : ScriptableObject
     [Range(0, 10)]
     [SerializeField] int _health = 5;
     [SerializeField] int _maxSpeed = 10;
-    [SerializeField] CreatureController creatureController;
     //属性
     public int Acceleration => _acceleration;
     public int Lucky => _lucky;
@@ -23,7 +22,6 @@ public class TinyCreatureSO : ScriptableObject
     public TinyPersona TinyPersona => tinyPersona;
     public int MaxSpeed => _maxSpeed;
     public string Name => _name;
-    public CreatureController CreatureController => creatureController;
 
 }
 
