@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class PeopleShop : MonoBehaviour
 {
+    [SerializeField] List<Transform> points;
 
 }

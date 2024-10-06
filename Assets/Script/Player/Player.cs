@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] SelectEvent OnLose;
     [SerializeField] Gamble gamble;
     [SerializeField] TMP_Text moneyText;
+    [SerializeField] Button reset;
+    public List<Item> items = new List<Item>();
     public int Money
     {
         get => money;
@@ -25,12 +28,14 @@ public class Player : MonoBehaviour
     {
         selectEvent.Register(SetNewGamble);
         OnWin.Register(GetMoney);
+        OnLose.Register(GetMoney);
     }
 
     private void OnDisable()
     {
         selectEvent.Unregister(SetNewGamble);
         OnWin.Unregister(GetMoney);
+        OnLose.Unregister(GetMoney);
     }
 
     public void GetMoney(ICreatureController creatureController)
@@ -39,13 +44,20 @@ public class Player : MonoBehaviour
         {
             Money += gamble.money * 2;
         }
+
     }
     public void SetNewGamble(ICreatureController creatureController)
     {
+        GameManager gameManager = FindAnyObjectByType<GameManager>();
+        gameManager.IsSelect = true;
         gamble = new();
         creatureController.IsSelect = true;
-        gamble.money = GambleMoney;
-        Money -= GambleMoney;
+        if (Money >= GambleMoney)
+        {
+            gamble.money = GambleMoney;
+            Money -= GambleMoney;
+        }
+
     }
 }
 class Gamble

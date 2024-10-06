@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// <summary>
 /// 其中的物品放置到场景中
@@ -10,25 +9,19 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField]
-    GameObject theItem;
-
+    [SerializeField] Item theItem;
+    Image image;
+    bool isDragging = false;
+    GameObject current;
+    private void Start()
+    {
+        image = GetComponent<Image>();
+        image.sprite = theItem.spriteRenderer.sprite;
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        Debug.Log("zzzz");
-    }
-
-    public void OnDragEnd(PointerEventData eventData)
-    {
-
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
+        current = null;
+        isDragging = true;
         // 获取鼠标在屏幕上的位置
         Vector3 screenPosition = eventData.position;
 
@@ -39,7 +32,28 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         worldPosition.z = 0;
 
         // 在指定位置生成物体
-        GameObject obj = Instantiate(theItem, worldPosition, Quaternion.identity);
+        Item obj = Instantiate(theItem, worldPosition, Quaternion.identity);
+
+        current = obj.gameObject;
+        current.GetComponent<BoxCollider2D>().enabled = false;
         Debug.Log("" + obj.name);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector3 screenPosition = eventData.position;
+
+        // 将屏幕坐标转换为世界坐标
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, Camera.main.nearClipPlane));
+
+        // 根据需求调整 z 轴值，如果是 2D 游戏，可以将 z 设为 0
+        worldPosition.z = 0;
+        current.gameObject.transform.position = worldPosition;
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        isDragging = false;
+        Destroy(gameObject);
+        current.GetComponent<BoxCollider2D>().enabled = true;
     }
 }

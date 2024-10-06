@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] List<CreatureController> tinyCreatures;
+    [SerializeField] List<CreatureController> tinyCreaturesPrefabs;
     [SerializeField] List<Transform> BirthPoint;
+    [SerializeField] List<CreatureController> tinyCreatures;
     List<CreatureController> creatureControllers;
     [SerializeField] VoidEvent OnReady;
     [SerializeField] SelectEvent OnStartRun;
     [SerializeField] SelectEvent OnWinEvent;
     [SerializeField] SelectEvent OnLoseEvent;
+    [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] Transform initFollow;
+    //本局游戏是否已经选择过
+    public bool IsSelect = false;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -28,8 +34,7 @@ public class GameManager : MonoBehaviour
         OnLoseEvent.Register(OnLose);
     }
     void Start()
-    {
-        //触发准备事件
+    {        //触发准备事件
         OnReady.Invoke();
     }
 
@@ -41,6 +46,7 @@ public class GameManager : MonoBehaviour
     public List<CreatureController> GenerateCreature()
     {
         List<CreatureController> creatureControllers = new();
+        tinyCreatures = new();
         List<int> numbers = new List<int>();
         for (int i = 0; i < BirthPoint.Count; i++)
         {
@@ -57,11 +63,13 @@ public class GameManager : MonoBehaviour
         }
         for (int i = 0; i < numbers.Count; i++)
         {
-            TinyCreatureSO tinyCreatureSO = tinyCreatures[i].tinyCreatureSO;
-            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreatures[i]);
+            TinyCreatureSO tinyCreatureSO = tinyCreaturesPrefabs[i].tinyCreatureSO;
+            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreaturesPrefabs[i]);
             tinyPlayer.LoadData(tinyCreatureSO);
             tinyPlayer.transform.position = BirthPoint[numbers[i]].position;
+
             creatureControllers.Add(tinyPlayer);
+            tinyCreatures.Add(tinyPlayer);
         }
         return creatureControllers;
     }
@@ -89,6 +97,16 @@ public class GameManager : MonoBehaviour
     void OnLose(ICreatureController creatureController)
     {
         Debug.Log(creatureController.Name + "lose");
+    }
+    public void ResetGame()
+    {
+        foreach (var item in tinyCreatures)
+        {
+            Destroy(item.gameObject);
+        }
+        cinemachineVirtualCamera.Follow = initFollow;
+        IsSelect = false;
+        OnReady.Invoke();
     }
 
 }

@@ -12,6 +12,7 @@ public class ClickHandler : MonoBehaviour
     public VoidEvent ReadyEvent;
     public SelectEvent StartRunEvent;
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
+    GameManager gameManager;
     private void OnEnable()
     {
         playerInputs.Player.Click.performed += OnClickPerformed;
@@ -26,17 +27,20 @@ public class ClickHandler : MonoBehaviour
     private void Awake()
     {
         playerInputs = new PlayerInputActions();
-
+        gameManager = FindAnyObjectByType<GameManager>();
         // 获取输入动作
 
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !gameManager.IsSelect)
             OnClickPerformed();
     }
     private void OnClickPerformed(InputAction.CallbackContext context)
     {
+
+
         //Debug.Log("ICancelHandler");
         // 检查是否点击在 UI 上
         if (EventSystem.current.IsPointerOverGameObject())
@@ -60,6 +64,7 @@ public class ClickHandler : MonoBehaviour
             {
                 Debug.Log("Clicked on a Creature: " + creature.name);
                 HandleClickOnCreature(creature);
+
             }
             else
             {
@@ -96,5 +101,6 @@ public class ClickHandler : MonoBehaviour
     private void HandleClickOnCreature(ICreatureController creature)
     {
         cinemachineVirtualCamera.Follow = creature.CreatureTransform;
+
     }
 }
