@@ -8,4 +8,5 @@ public interface ICreatureController
     bool GetLucky();
     Transform CreatureTransform { get; }
     StateMachine StateMachine { get; }
+    TinyCreatureSO tinyCreatureSO { get; }
 }

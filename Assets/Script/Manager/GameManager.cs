@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] List<TinyCreatureSO> tinyCreatureSOs;
+    [SerializeField] List<CreatureController> tinyCreatures;
     [SerializeField] List<Transform> BirthPoint;
     List<CreatureController> creatureControllers;
     [SerializeField] VoidEvent OnReady;
@@ -57,9 +57,8 @@ public class GameManager : MonoBehaviour
         }
         for (int i = 0; i < numbers.Count; i++)
         {
-
-            TinyCreatureSO tinyCreatureSO = tinyCreatureSOs[i];
-            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreatureSO.CreatureController);
+            TinyCreatureSO tinyCreatureSO = tinyCreatures[i].tinyCreatureSO;
+            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreatures[i]);
             tinyPlayer.LoadData(tinyCreatureSO);
             tinyPlayer.transform.position = BirthPoint[numbers[i]].position;
             creatureControllers.Add(tinyPlayer);

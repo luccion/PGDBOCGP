@@ -41,6 +41,8 @@ public class CreatureController : MonoBehaviour, ICreatureController
 
     public StateMachine StateMachine => playerStateMachine;
 
+    public TinyCreatureSO tinyCreatureSO => tinyCreature;
+
     public void TransitionTo(CreatureState gameState) => playerStateMachine.TransitionTo(gameState);
     [SerializeField] Vector2 moveDelta;
 
