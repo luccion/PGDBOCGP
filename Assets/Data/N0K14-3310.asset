@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: N0K14-3310
   m_EditorClassIdentifier: 
   _name: N0K14-3310
-  _acceleration: 3
-  _lucky: 5
+  _acceleration: 1
+  _lucky: 6
   _health: 5
-  _maxSpeed: 6
+  _maxSpeed: 4
   bloodColor: {r: 0.23137257, g: 0.38823533, b: 0.7294118, a: 1}

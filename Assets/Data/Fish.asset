@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   _name: Fish
-  _acceleration: 4
-  _lucky: 5
-  _health: 5
-  _maxSpeed: 10
+  _acceleration: 2
+  _lucky: 7
+  _health: 3
+  _maxSpeed: 5
   bloodColor: {r: 0.2392157, g: 0.67058825, b: 0.627451, a: 1}

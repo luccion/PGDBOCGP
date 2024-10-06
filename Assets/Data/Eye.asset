@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Eye
   m_EditorClassIdentifier: 
   _name: Eye
-  _acceleration: 1
-  _lucky: 5
-  _health: 5
-  _maxSpeed: 10
+  _acceleration: 2
+  _lucky: 8
+  _health: 3
+  _maxSpeed: 4
   bloodColor: {r: 0.3529412, g: 0.7725491, b: 0.4431373, a: 1}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Urchin
   m_EditorClassIdentifier: 
   _name: Urchin
-  _acceleration: 1
-  _lucky: 5
-  _health: 5
-  _maxSpeed: 10
+  _acceleration: 2
+  _lucky: 7
+  _health: 3
+  _maxSpeed: 5
   bloodColor: {r: 0.1764706, g: 0.1764706, b: 0.1764706, a: 1}

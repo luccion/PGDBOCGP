@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sea Gull
   m_EditorClassIdentifier: 
   _name: Sea Gull
-  _acceleration: 1
-  _lucky: 5
-  _health: 5
-  _maxSpeed: 10
+  _acceleration: 2
+  _lucky: 7
+  _health: 3
+  _maxSpeed: 4
   bloodColor: {r: 0.69411767, g: 0.69411767, b: 0.69411767, a: 1}

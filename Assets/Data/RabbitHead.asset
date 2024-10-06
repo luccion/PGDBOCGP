@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RabbitHead
   m_EditorClassIdentifier: 
   _name: RabbitHead
-  _acceleration: 3
-  _lucky: 0
-  _health: 5
-  _maxSpeed: 6
+  _acceleration: 2
+  _lucky: 10
+  _health: 3
+  _maxSpeed: 4
   bloodColor: {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 1}

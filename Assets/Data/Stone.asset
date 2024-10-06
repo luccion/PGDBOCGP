@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   _name: Stone
-  _acceleration: 1
-  _lucky: 5
-  _health: 5
-  _maxSpeed: 10
+  _acceleration: 3
+  _lucky: 8
+  _health: 1
+  _maxSpeed: 3
   bloodColor: {r: 0.16862746, g: 0.4156863, b: 0.6901961, a: 1}
