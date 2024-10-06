@@ -46,6 +46,8 @@ public class CreatureController : MonoBehaviour, ICreatureController
 
     public Animator Animator => animator;
 
+    public bool IsSelect { get; set; }
+
     public void TransitionTo(CreatureState gameState) => playerStateMachine.TransitionTo(gameState);
 
     [SerializeField] bool isMuteki = false;

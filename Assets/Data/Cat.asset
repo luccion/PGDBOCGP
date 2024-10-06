@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cat
   m_EditorClassIdentifier: 
   _name: Cat
-  _acceleration: 1
+  _acceleration: 10
   _lucky: 5
   _health: 5
   _maxSpeed: 10

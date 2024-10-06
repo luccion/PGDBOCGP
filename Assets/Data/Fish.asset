@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   _name: Fish
-  _acceleration: 1
+  _acceleration: 4
   _lucky: 5
   _health: 5
   _maxSpeed: 10

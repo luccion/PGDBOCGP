@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ICreatureController
 {
     string Name { get; }
+    bool IsSelect { get; set; }
     bool GetLucky();
     void SetSpeed(int speed);
     Transform CreatureTransform { get; }
