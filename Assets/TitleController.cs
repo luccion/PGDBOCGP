@@ -24,10 +24,6 @@ public class TitleController : MonoBehaviour
         Debug.Log("ddddd");
         animator.SetTrigger("credits");
     }
-    public void GoToGameStart()
-    {
-        //咋写啊
 
-    }
 
 }

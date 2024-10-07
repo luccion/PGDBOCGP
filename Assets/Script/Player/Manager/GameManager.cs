@@ -149,7 +149,9 @@ public class GameManager : MonoBehaviour
             // player.Money = 20;
             SceneManager.LoadScene(1);
         }
-
+        handObj.StateMachine.TransitionTo(CreatureState.IDLE);
+        handObj.SetSpeed(0);
+        hand.Reset();
         cinemachineVirtualCamera.Follow = initFollow;
         IsSelect = false;
         OnReady.Invoke();
