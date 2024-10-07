@@ -25,7 +25,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        FindFirstObjectByType<Player>().items.Remove(theItem);
+
         image.color = Color.clear;
         current = null;
         isDragging = true;
@@ -44,6 +44,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         current = obj.gameObject;
         current.GetComponent<BoxCollider2D>().enabled = false;
         Debug.Log("" + obj.name);
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -59,8 +60,10 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
     public void OnEndDrag(PointerEventData eventData)
     {
+
         isDragging = false;
         Destroy(gameObject);
         current.GetComponent<BoxCollider2D>().enabled = true;
+        FindFirstObjectByType<Player>().items.Remove(theItem);
     }
 }

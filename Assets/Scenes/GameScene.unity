@@ -1846,6 +1846,21 @@ MonoBehaviour:
   lucky: 0
   pickupRadius: 5
   isMuteki: 0
+--- !u!114 &376648516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376648505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8df30b8b764254b9f0c090077c8eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  animator: {fileID: 376648508}
+  spriteRenderer: {fileID: 1333300581}
 --- !u!4 &386984605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5787217734892575264, guid: cb4224ba67b01c94da0ceb531ae5d2ac, type: 3}
@@ -7158,6 +7173,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8876605134197952970, guid: 9a785ad60b637ac499f7b85eaf7039ef, type: 3}
   m_PrefabInstance: {fileID: 1328554844}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1333300581 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3307885311100557315, guid: 1aa418e864c5dbd4a8877c82a7b81342, type: 3}
+  m_PrefabInstance: {fileID: 1605543854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1336211854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8488,6 +8508,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8745513729459290766, guid: 1aa418e864c5dbd4a8877c82a7b81342, type: 3}
       insertIndex: -1
       addedObject: {fileID: 376648515}
+    - targetCorrespondingSourceObject: {fileID: 8745513729459290766, guid: 1aa418e864c5dbd4a8877c82a7b81342, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 376648516}
   m_SourcePrefab: {fileID: 100100000, guid: 1aa418e864c5dbd4a8877c82a7b81342, type: 3}
 --- !u!1 &1624016781
 GameObject:
@@ -10641,7 +10664,7 @@ MonoBehaviour:
   OnLoseEvent: {fileID: 11400000, guid: e83bdbbe9ec6e0442b8ca23f1770828f, type: 2}
   cinemachineVirtualCamera: {fileID: 959906550}
   initFollow: {fileID: 94338672}
-  hand: {fileID: 376648515}
+  handObj: {fileID: 376648515}
   IsSelect: 0
 --- !u!4 &2012442971
 Transform:

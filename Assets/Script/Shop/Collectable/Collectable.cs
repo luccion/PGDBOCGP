@@ -26,8 +26,13 @@ public class Collectable : MonoBehaviour
     }
     public void Buy()
     {
-        FindFirstObjectByType<PeopleShop>().OnBuy(item);
-        //BuyEvent?.Invoke(item);
-        Destroy(gameObject);
+
+        if (player.Money >= item.price)
+        {
+            FindFirstObjectByType<PeopleShop>().OnBuy(item);
+            //BuyEvent?.Invoke(item);
+            Destroy(gameObject);
+        }
+
     }
 }

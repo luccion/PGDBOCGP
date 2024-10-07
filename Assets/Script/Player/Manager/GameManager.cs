@@ -4,6 +4,7 @@ using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,7 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform initFollow;
     //本局游戏是否已经选择过
     [Header("chaser")]
-    [SerializeField] CreatureController hand;
+    [SerializeField] CreatureController handObj;
+    Hand hand;
     public bool IsSelect = false;
     // Start is called before the first frame update
     private void OnEnable()
@@ -42,6 +44,10 @@ public class GameManager : MonoBehaviour
         OnWinEvent.Unregister(OnWin);
         OnLoseEvent.Unregister(OnLose);
     }
+    private void Awake()
+    {
+        hand = handObj.GetComponent<Hand>();
+    }
     void Start()
     {
         OnPlayerReadyAction?.Invoke();
@@ -56,7 +62,7 @@ public class GameManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log("最后一名" + GetRank(5).Name);
+        //  Debug.Log("最后一名" + GetRank(5).Name);
     }
     public List<CreatureController> GenerateCreature()
     {
@@ -102,7 +108,7 @@ public class GameManager : MonoBehaviour
         {
             tiny.StateMachine.TransitionTo(CreatureState.RUN);
         }
-        hand.StateMachine.TransitionTo(CreatureState.RUN);
+        handObj.StateMachine.TransitionTo(CreatureState.RUN);
     }
     void PlayerReady()
     {
@@ -111,37 +117,62 @@ public class GameManager : MonoBehaviour
     void OnWin(ICreatureController creatureController)
     {
         Debug.Log(creatureController.Name + "win");
-        StartCoroutine(StopAll(3));
+        //hand.Reset();
+        StartCoroutine(StopAll(2, true));
     }
     void OnLose(ICreatureController creatureController)
     {
+        // hand.Reset();
         Debug.Log(creatureController.Name + "lose");
-        StartCoroutine(StopAll(3));
+        StartCoroutine(StopAll(2, false));
     }
     public void ResetGame()
     {
-        StopAllCoroutines();
+        //  StopAllCoroutines();
         foreach (var item in tinyCreatures)
         {
             Destroy(item.gameObject);
         }
         FindFirstObjectByType<EndLine>().end = false;
         FindFirstObjectByType<PeopleShop>().RefleshShop();
-        if (FindObjectOfType<Player>().Money == 0)
+        Player player = FindFirstObjectByType<Player>();
+        if (player.Money == 0)
         {
-            FindObjectOfType<Player>().Money = 20;
+            player.Money = 20;
         }
 
         cinemachineVirtualCamera.Follow = initFollow;
         IsSelect = false;
         OnReady.Invoke();
     }
-    IEnumerator StopAll(int second)
+    IEnumerator StopAll(int second, bool isWin)
     {
+
         yield return new WaitForSeconds(second);
+        cinemachineVirtualCamera.Follow = handObj.transform;
+        yield return KillAll(tinyCreatures, isWin);
         ResetGame();
     }
-
+    IEnumerator KillAll(List<CreatureController> creatureControllers, bool isWin)
+    {
+        foreach (var item in creatureControllers)
+        {
+            item.StateMachine.TransitionTo(CreatureState.IDLE);
+            item.SetSpeed(1);
+        }
+        foreach (var item in creatureControllers)
+        {
+            if (isWin && item.IsSelect)
+            {
+                continue;
+            }
+            yield return hand.FlytoKill(item);
+        }
+        yield return new WaitForSeconds(1);
+        handObj.StateMachine.TransitionTo(CreatureState.IDLE);
+        handObj.SetSpeed(0);
+        hand.Reset();
+    }
     CreatureController GetRank(int rank)
     {
         List<CreatureController> rankedObjects = tinyCreatures
