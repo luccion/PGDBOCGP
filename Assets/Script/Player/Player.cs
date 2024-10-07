@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         get => money;
         set
         {
-            moneyText.text = value.ToString();
+            moneyText.text = "$" + value.ToString();
             money = value;
         }
     }

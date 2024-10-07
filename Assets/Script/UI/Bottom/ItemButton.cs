@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /// </summary>
 public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] Item theItem;
+    [SerializeField] public Item theItem;
     [SerializeField] Image image;
     bool isDragging = false;
     GameObject current;
@@ -17,18 +17,19 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        image.sprite = theItem.spriteRenderer.sprite;
+        current = Instantiate(theItem).gameObject;
+        current.SetActive(false);
     }
     public void Load(Item theItem)
     {
-        image.sprite = theItem.spriteRenderer.sprite;
-        this.theItem = theItem;
+
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
 
         if (theItem == null) return;
         image.color = Color.clear;
-        current = null;
         isDragging = true;
         // 获取鼠标在屏幕上的位置
         Vector3 screenPosition = eventData.position;
@@ -38,9 +39,9 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
         // 根据需求调整 z 轴值，如果是 2D 游戏，可以将 z 设为 0
         worldPosition.z = 0;
-
+        current.SetActive(true);
         // 在指定位置生成物体
-        Item obj = Instantiate(theItem, worldPosition, Quaternion.identity);
+        Item obj = current.GetComponent<Item>();
 
         current = obj.gameObject;
         current.GetComponent<BoxCollider2D>().enabled = false;

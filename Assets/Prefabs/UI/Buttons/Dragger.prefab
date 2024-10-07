@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2120bce43a2279649a3154559743bd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theItem: {fileID: 0}
+  theItem: {fileID: 8058710717173290072, guid: f9cf9c2f8a2f8e34fb557d3410c6f51a, type: 3}
   image: {fileID: 1079042350158705433}
   gameManager: {fileID: 0}
 --- !u!61 &1796427905655135894

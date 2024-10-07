@@ -4,6 +4,7 @@ using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<CreatureController> tinyCreaturesPrefabs;
     [SerializeField] List<Transform> BirthPoint;
     [SerializeField] List<CreatureController> tinyCreatures;
+    [SerializeField] Transform pos;
     List<CreatureController> creatureControllers;
     //选人
     [SerializeField] UnityEvent OnPlayerReadyAction;
@@ -88,7 +90,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
 
-            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreaturesPrefabs[numbers[i]]);
+            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreaturesPrefabs[numbers[i]], pos);
             TinyCreatureSO tinyCreatureSO = tinyPlayer.tinyCreatureSO;
             tinyPlayer.LoadData(tinyCreatureSO);
             tinyPlayer.transform.position = BirthPoint[i].position;
@@ -144,7 +146,8 @@ public class GameManager : MonoBehaviour
         Player player = FindFirstObjectByType<Player>();
         if (player.Money == 0)
         {
-            player.Money = 20;
+            // player.Money = 20;
+            SceneManager.LoadScene(1);
         }
 
         cinemachineVirtualCamera.Follow = initFollow;

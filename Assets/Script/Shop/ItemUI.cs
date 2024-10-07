@@ -12,7 +12,7 @@ public class ItemUI : MonoBehaviour
         foreach (var item in items)
         {
             ItemButton itemButton = Instantiate(itemButtonPrefab, transform);
-            itemButton.Load(item);
+            itemButton.theItem = item;
         }
     }
 
