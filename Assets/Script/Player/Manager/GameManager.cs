@@ -8,6 +8,7 @@ using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject shutAnim;
     [SerializeField] List<CreatureController> tinyCreaturesPrefabs;
     [SerializeField] List<Transform> BirthPoint;
     [SerializeField] List<CreatureController> tinyCreatures;
@@ -132,7 +133,8 @@ public class GameManager : MonoBehaviour
     }
     public void ResetGame()
     {
-        //  StopAllCoroutines();
+        //  StopAllCoroutines();   
+
         foreach (var item in tinyCreatures)
         {
             Destroy(item.gameObject);
