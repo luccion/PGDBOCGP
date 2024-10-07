@@ -67,6 +67,5 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         isDragging = false;
         Destroy(gameObject);
         current.GetComponent<BoxCollider2D>().enabled = true;
-        FindFirstObjectByType<Player>().items -= 1;
     }
 }
