@@ -69,6 +69,10 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("最后一名" + GetRank(5).Name);
     }
+    public void Back2Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public List<CreatureController> GenerateCreature()
     {
         List<CreatureController> creatureControllers = new();
@@ -147,7 +151,7 @@ public class GameManager : MonoBehaviour
         if (player.Money == 0)
         {
             // player.Money = 20;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         handObj.StateMachine.TransitionTo(CreatureState.IDLE);
         handObj.SetSpeed(0);

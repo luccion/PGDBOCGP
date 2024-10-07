@@ -25,11 +25,22 @@ public class AudioManager : MonoBehaviour
     public AudioClip onBanana;
     public AudioClip jumpRock;
 
+
+    public AudioClip pushbtn;
+
+
     // 通用的播放函数
     public void PlayOneshot(AudioClip audioClip)
     {
         sfx.PlayOneShot(audioClip);
     }
+
+    public void PlayBtn()
+    {
+        PlayOneshot(pushbtn);
+    }
+
+
 
     // 用于跳跃的音效
     public void PlayJump()
