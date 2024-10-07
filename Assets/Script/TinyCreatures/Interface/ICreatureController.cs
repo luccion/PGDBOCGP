@@ -7,6 +7,7 @@ public interface ICreatureController
     string Name { get; }
     bool IsSelect { get; set; }
     bool GetLucky();
+    float GetSpeedPercent();
     void SetSpeed(int speed);
     Transform CreatureTransform { get; }
     StateMachine StateMachine { get; }

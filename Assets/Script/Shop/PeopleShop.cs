@@ -20,10 +20,10 @@ public class PeopleShop : MonoBehaviour
         {
             Collectable collectable = Instantiate(collectablePrefab, p);
             collectable.Load(sellItems[0]);
-            collectable.BuyEvent = OnBuy;
+            // collectable.BuyEvent = OnBuy;
         }
     }
-    void OnBuy(Item item)
+    public void OnBuy(Item item)
     {
         if (player.Money >= item.price)
         {

@@ -4,5 +4,9 @@ using UnityEngine;
 
 public abstract class Interaction : MonoBehaviour
 {
-    abstract public bool OnInteract(ICreatureController creatureController);
+    abstract public bool OnAfterInteract(ICreatureController creatureController);
+    virtual public void OnBeforeInteract(ICreatureController creatureController)
+    {
+
+    }
 }

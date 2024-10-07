@@ -12,6 +12,7 @@ public class ClickHandler : MonoBehaviour
     public VoidEvent ReadyEvent;
     public SelectEvent StartRunEvent;
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] PointerUI pointer;
     GameManager gameManager;
     private void OnEnable()
     {
@@ -101,6 +102,8 @@ public class ClickHandler : MonoBehaviour
     private void HandleClickOnCreature(ICreatureController creature)
     {
         cinemachineVirtualCamera.Follow = creature.CreatureTransform;
+        PointerUI obj = Instantiate(pointer, creature.CreatureTransform);
+        obj.transform.localPosition = new Vector3(0, 4, 0);
 
     }
 }

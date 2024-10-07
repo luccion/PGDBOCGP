@@ -10,7 +10,7 @@ public class Banana : Item
 {
     [SerializeField] int ID;
     public override int price { get => base.price; }
-    public override bool OnInteract(ICreatureController creatureController)
+    public override bool OnAfterInteract(ICreatureController creatureController)
     {
         if (!isUsed)
         {
@@ -30,7 +30,7 @@ public class Banana : Item
         isUsed = true;
         creatureController.StateMachine.TransitionTo(CreatureState.BLOCK);
         creatureController.SetSpeed(0);
-        //creatureController.Animator.SetTrigger("Roll");
+        creatureController.Animator.SetTrigger("Roll");
         creatureController.Animator.SetTrigger("Rolling");
         yield return new WaitForSeconds(2f);
         creatureController.Animator.SetTrigger("EndRoll");

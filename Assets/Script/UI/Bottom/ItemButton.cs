@@ -24,6 +24,8 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        FindFirstObjectByType<Player>().items.Remove(theItem);
+        image.color = Color.clear;
         current = null;
         isDragging = true;
         // 获取鼠标在屏幕上的位置

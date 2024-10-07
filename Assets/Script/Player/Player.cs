@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] Gamble gamble;
     [SerializeField] TMP_Text moneyText;
     [SerializeField] Button reset;
+
     public List<Item> items = new List<Item>();
     public int Money
     {
@@ -37,7 +38,10 @@ public class Player : MonoBehaviour
         OnWin.Unregister(GetMoney);
         OnLose.Unregister(GetMoney);
     }
-
+    private void Start()
+    {
+        moneyText.text = "$" + Money.ToString();
+    }
     public void GetMoney(ICreatureController creatureController)
     {
         if (creatureController.IsSelect)
@@ -54,10 +58,14 @@ public class Player : MonoBehaviour
         creatureController.IsSelect = true;
         if (Money >= GambleMoney)
         {
-            gamble.money = GambleMoney;
-            Money -= GambleMoney;
-        }
 
+        }
+        else
+        {
+            Money = 20;
+        }
+        gamble.money = GambleMoney;
+        Money -= GambleMoney;
     }
 }
 class Gamble

@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<Transform> BirthPoint;
     [SerializeField] List<CreatureController> tinyCreatures;
     List<CreatureController> creatureControllers;
+    //选人
+    [SerializeField] UnityEvent OnPlayerReadyAction;
+    //预备
+    [SerializeField] UnityEvent OnReadyEvent;
+    //跑
+    [SerializeField] UnityEvent OnRunAction;
     [SerializeField] VoidEvent OnReady;
     [SerializeField] SelectEvent OnStartRun;
     [SerializeField] SelectEvent OnWinEvent;
@@ -34,7 +40,9 @@ public class GameManager : MonoBehaviour
         OnLoseEvent.Register(OnLose);
     }
     void Start()
-    {        //触发准备事件
+    {
+        OnPlayerReadyAction?.Invoke();
+        //触发准备事件
         OnReady.Invoke();
     }
 
@@ -48,7 +56,7 @@ public class GameManager : MonoBehaviour
         List<CreatureController> creatureControllers = new();
         tinyCreatures = new();
         List<int> numbers = new List<int>();
-        for (int i = 0; i < BirthPoint.Count; i++)
+        for (int i = 0; i < tinyCreaturesPrefabs.Count; i++)
         {
             numbers.Add(i);
         }
@@ -61,12 +69,13 @@ public class GameManager : MonoBehaviour
             numbers[i] = numbers[randomIndex];
             numbers[randomIndex] = temp;
         }
-        for (int i = 0; i < numbers.Count; i++)
+        for (int i = 0; i < 5; i++)
         {
-            TinyCreatureSO tinyCreatureSO = tinyCreaturesPrefabs[i].tinyCreatureSO;
-            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreaturesPrefabs[i]);
+
+            CreatureController tinyPlayer = Instantiate<CreatureController>(tinyCreaturesPrefabs[numbers[i]]);
+            TinyCreatureSO tinyCreatureSO = tinyPlayer.tinyCreatureSO;
             tinyPlayer.LoadData(tinyCreatureSO);
-            tinyPlayer.transform.position = BirthPoint[numbers[i]].position;
+            tinyPlayer.transform.position = BirthPoint[i].position;
 
             creatureControllers.Add(tinyPlayer);
             tinyCreatures.Add(tinyPlayer);
@@ -79,8 +88,9 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator RunGame()
     {
-        yield return new WaitForSeconds(2f);
-
+        OnReadyEvent?.Invoke();
+        yield return new WaitForSeconds(3.5f);
+        OnRunAction?.Invoke();
         foreach (var tiny in creatureControllers)
         {
             tiny.StateMachine.TransitionTo(CreatureState.RUN);
@@ -93,20 +103,35 @@ public class GameManager : MonoBehaviour
     void OnWin(ICreatureController creatureController)
     {
         Debug.Log(creatureController.Name + "win");
+        //StartCoroutine(StopAll());
     }
     void OnLose(ICreatureController creatureController)
     {
         Debug.Log(creatureController.Name + "lose");
+        // StartCoroutine(StopAll());
     }
     public void ResetGame()
     {
+        StopAllCoroutines();
         foreach (var item in tinyCreatures)
         {
             Destroy(item.gameObject);
         }
+        FindFirstObjectByType<EndLine>().end = false;
         cinemachineVirtualCamera.Follow = initFollow;
         IsSelect = false;
         OnReady.Invoke();
+    }
+    IEnumerator StopAll()
+    {
+        yield return new WaitForSeconds(3);
+        foreach (var item in tinyCreatures)
+        {
+            item.SetSpeed(0);
+            item.TransitionTo(CreatureState.IDLE);
+            item.Animator.Play("Idle");
+
+        }
     }
 
 }

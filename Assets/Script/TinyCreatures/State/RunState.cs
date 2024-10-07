@@ -18,6 +18,7 @@ public class RunningState : IGameState
     public void ExitState()
     {
         Debug.Log("exit Run");
+        player.Animator.SetFloat("SpeedP", player.GetSpeedPercent());
     }
 
     public void UpdateState()

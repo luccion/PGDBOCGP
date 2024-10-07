@@ -47,3 +47,6 @@ TagManager:
   - name: Barrier
     uniqueID: 3792022061
     locked: 0
+  - name: Creature
+    uniqueID: 2384367739
+    locked: 0

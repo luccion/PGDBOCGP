@@ -185,13 +185,23 @@ public class CreatureController : MonoBehaviour, ICreatureController
             return false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("encounter");
+        if (other.TryGetComponent<Interaction>(out Interaction i))
+        {
+            //自动互动
+            i.OnBeforeInteract(this);
+        }
+    }
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("encounter");
         if (other.TryGetComponent<Interaction>(out Interaction i))
         {
             //自动互动
-            i.OnInteract(this);
+            i.OnAfterInteract(this);
         }
     }
 
@@ -205,6 +215,11 @@ public class CreatureController : MonoBehaviour, ICreatureController
 
         StartCoroutine(coroutine);
 
+    }
+
+    public float GetSpeedPercent()
+    {
+        return speed / maxSpeed;
     }
 }
 
