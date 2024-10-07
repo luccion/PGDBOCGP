@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class PeopleShop : MonoBehaviour
 {
-    [SerializeField] List<Transform> points;
     [SerializeField] List<Item> sellItems;
     [SerializeField] Collectable collectablePrefab;
     [SerializeField] ItemUI itemUI;
+    [SerializeField] Transform ShopPos;
+    [SerializeField] int nodeCount = 10;  // 房间节点数量
+    [SerializeField] int nodesize = 5;  // 房间节点大小
     Player player;
     private void Start()
     {
         player = FindFirstObjectByType<Player>();
         RefleshShop();
+        itemUI.RefleshUI(player.items);
     }
     public void RefleshShop()
     {
-        foreach (var p in points)
+        for (int i = 0; i < nodeCount; i++)
         {
-            Collectable collectable = Instantiate(collectablePrefab, p);
-            collectable.Load(sellItems[0]);
-            // collectable.BuyEvent = OnBuy;
+            int random = Random.Range(0, sellItems.Count);
+            Collectable collectable = Instantiate(collectablePrefab, ShopPos);
+            collectable.Load(sellItems[random]);
+            collectable.transform.localPosition = new Vector2(nodesize * i, 0);
         }
+        // collectable.BuyEvent = OnBuy;        }
     }
     public void OnBuy(Item item)
     {

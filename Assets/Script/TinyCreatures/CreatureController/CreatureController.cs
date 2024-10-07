@@ -186,7 +186,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    virtual public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("encounter");
         if (other.TryGetComponent<Interaction>(out Interaction i))
@@ -195,7 +195,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
             i.OnBeforeInteract(this);
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
+    virtual public void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("encounter");
         if (other.TryGetComponent<Interaction>(out Interaction i))

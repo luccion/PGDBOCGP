@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] Transform initFollow;
     //本局游戏是否已经选择过
+    [Header("chaser")]
+    [SerializeField] CreatureController hand;
     public bool IsSelect = false;
     // Start is called before the first frame update
     private void OnEnable()
@@ -36,8 +39,8 @@ public class GameManager : MonoBehaviour
     {
         OnReady.Unregister(PlayerReady);
         OnStartRun.Unregister(RunGameCoroutine);
-        OnWinEvent.Register(OnWin);
-        OnLoseEvent.Register(OnLose);
+        OnWinEvent.Unregister(OnWin);
+        OnLoseEvent.Unregister(OnLose);
     }
     void Start()
     {
@@ -50,6 +53,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+    private void FixedUpdate()
+    {
+        Debug.Log("最后一名" + GetRank(5).Name);
     }
     public List<CreatureController> GenerateCreature()
     {
@@ -95,6 +102,7 @@ public class GameManager : MonoBehaviour
         {
             tiny.StateMachine.TransitionTo(CreatureState.RUN);
         }
+        hand.StateMachine.TransitionTo(CreatureState.RUN);
     }
     void PlayerReady()
     {
@@ -103,12 +111,12 @@ public class GameManager : MonoBehaviour
     void OnWin(ICreatureController creatureController)
     {
         Debug.Log(creatureController.Name + "win");
-        //StartCoroutine(StopAll());
+        StartCoroutine(StopAll(3));
     }
     void OnLose(ICreatureController creatureController)
     {
         Debug.Log(creatureController.Name + "lose");
-        // StartCoroutine(StopAll());
+        StartCoroutine(StopAll(3));
     }
     public void ResetGame()
     {
@@ -118,20 +126,29 @@ public class GameManager : MonoBehaviour
             Destroy(item.gameObject);
         }
         FindFirstObjectByType<EndLine>().end = false;
+        FindFirstObjectByType<PeopleShop>().RefleshShop();
+        if (FindObjectOfType<Player>().Money == 0)
+        {
+            FindObjectOfType<Player>().Money = 20;
+        }
+
         cinemachineVirtualCamera.Follow = initFollow;
         IsSelect = false;
         OnReady.Invoke();
     }
-    IEnumerator StopAll()
+    IEnumerator StopAll(int second)
     {
-        yield return new WaitForSeconds(3);
-        foreach (var item in tinyCreatures)
-        {
-            item.SetSpeed(0);
-            item.TransitionTo(CreatureState.IDLE);
-            item.Animator.Play("Idle");
+        yield return new WaitForSeconds(second);
+        ResetGame();
+    }
 
-        }
+    CreatureController GetRank(int rank)
+    {
+        List<CreatureController> rankedObjects = tinyCreatures
+             .OrderByDescending(obj => obj.transform.position.x) // 根据 position.x 降序排序
+             .ToList(); // 转换为列表
+        // 打印排名
+        return rankedObjects[rank - 1];
     }
 
 }

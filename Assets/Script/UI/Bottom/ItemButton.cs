@@ -21,6 +21,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public void Load(Item theItem)
     {
         image.sprite = theItem.spriteRenderer.sprite;
+        this.theItem = theItem;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

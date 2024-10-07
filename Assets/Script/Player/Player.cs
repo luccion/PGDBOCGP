@@ -29,18 +29,19 @@ public class Player : MonoBehaviour
     {
         selectEvent.Register(SetNewGamble);
         OnWin.Register(GetMoney);
-        OnLose.Register(GetMoney);
+        // OnLose.Register(GetMoney);
     }
 
     private void OnDisable()
     {
         selectEvent.Unregister(SetNewGamble);
         OnWin.Unregister(GetMoney);
-        OnLose.Unregister(GetMoney);
+        // OnLose.Unregister(GetMoney);
     }
     private void Start()
     {
         moneyText.text = "$" + Money.ToString();
+
     }
     public void GetMoney(ICreatureController creatureController)
     {
