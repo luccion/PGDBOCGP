@@ -16,5 +16,5 @@ MonoBehaviour:
   _acceleration: 10
   _lucky: 5
   _health: 5
-  _maxSpeed: 1
+  _maxSpeed: 2
   bloodColor: {r: 1, g: 0, b: 0, a: 1}
