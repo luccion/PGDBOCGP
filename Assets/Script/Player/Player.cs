@@ -12,18 +12,86 @@ public class Player : MonoBehaviour
     [SerializeField] SelectEvent OnWin;
     [SerializeField] SelectEvent OnLose;
     [SerializeField] Gamble gamble;
-    [SerializeField] TMP_Text moneyText;
     [SerializeField] Button reset;
     [SerializeField] AudioManager audioManager;
 
     public int items;
+
     public int Money
     {
         get => money;
         set
         {
-            moneyText.text = "$" + value.ToString();
             money = value;
+            ResetMoney(value);
+        }
+    }
+    [Header("YOUNG MONEY BABY")]
+    [SerializeField] Sprite coin0;
+    [SerializeField] Sprite coin1;
+    [SerializeField] Sprite coin2;
+    [SerializeField] Sprite coin3;
+    [SerializeField] Sprite coin4;
+    [SerializeField] Sprite coin5;
+    [SerializeField] Sprite coin6;
+    [SerializeField] Sprite coin7;
+    [SerializeField] Sprite coin10;
+    [SerializeField] Sprite coin20;
+    [SerializeField] Sprite coin40;
+    [SerializeField] Sprite coin100;
+    [SerializeField] Image MoneyImg;
+
+    private void ResetMoney(int money)
+    {
+
+        if (money < 1)
+        {
+            MoneyImg.sprite = coin0;
+        }
+
+        else if (money == 1)
+        {
+            MoneyImg.sprite = coin1;
+        }
+        else if (money == 2)
+        {
+            MoneyImg.sprite = coin2;
+        }
+        else if (money == 3)
+        {
+            MoneyImg.sprite = coin3;
+        }
+        else if (money == 4)
+        {
+            MoneyImg.sprite = coin4;
+        }
+        else if (money == 5)
+        {
+            MoneyImg.sprite = coin5;
+        }
+        else if (money == 6)
+        {
+            MoneyImg.sprite = coin6;
+        }
+        else if (money == 7)
+        {
+            MoneyImg.sprite = coin7;
+        }
+        else if (money > 7 && money < 10)
+        {
+            MoneyImg.sprite = coin10;
+        }
+        else if (money >= 10 && money < 20)
+        {
+            MoneyImg.sprite = coin20;
+        }
+        else if (money >= 20 && money <= 40)
+        {
+            MoneyImg.sprite = coin40;
+        }
+        else if (money > 40)
+        {
+            MoneyImg.sprite = coin100;
         }
     }
     private void OnEnable()
@@ -41,7 +109,6 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-        moneyText.text = "$" + Money.ToString();
 
     }
     public void GetMoney(ICreatureController creatureController)

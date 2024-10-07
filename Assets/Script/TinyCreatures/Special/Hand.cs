@@ -14,7 +14,7 @@ public class Hand : MonoBehaviour
         transform.position = creatureController.CreatureTransform.position + offset;
         spriteRenderer.color = creatureController.tinyCreatureSO.BloodColor;
         animator.SetTrigger("Grasp");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.25f);
         creatureController.CreatureTransform.gameObject.SetActive(false);
     }
     public void Reset()
