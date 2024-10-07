@@ -5,14 +5,13 @@ using UnityEngine;
 public class ItemUI : MonoBehaviour
 {
     [SerializeField] ItemButton itemButtonPrefab;
-    public void RefleshUI(List<Item> items)
+    public void RefleshUI(int items)
     {
         DestroyChildren();
 
-        foreach (var item in items)
+        for (int i = 0; i < items; i++)
         {
             ItemButton itemButton = Instantiate(itemButtonPrefab, transform);
-            itemButton.theItem = item;
         }
     }
 

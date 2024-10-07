@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] Button reset;
     [SerializeField] AudioManager audioManager;
 
-    public List<Item> items = new List<Item>();
+    public int items;
     public int Money
     {
         get => money;

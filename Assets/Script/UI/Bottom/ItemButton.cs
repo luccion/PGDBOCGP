@@ -11,14 +11,15 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 {
     [SerializeField] public Item theItem;
     [SerializeField] Image image;
+    [SerializeField] Sprite sprite;
     bool isDragging = false;
     GameObject current;
     [SerializeField] GameManager gameManager;
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
-        image.sprite = theItem.spriteRenderer.sprite;
-        current = Instantiate(theItem).gameObject;
+        // image.sprite = theItem.spriteRenderer.sprite;
+        current = theItem.gameObject;
         current.SetActive(false);
     }
     public void Load(Item theItem)
@@ -27,8 +28,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-
-        if (theItem == null) return;
+        FindFirstObjectByType<Player>().items -= 1;
         image.color = Color.clear;
         isDragging = true;
         // 获取鼠标在屏幕上的位置
@@ -41,7 +41,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         worldPosition.z = 0;
         current.SetActive(true);
         // 在指定位置生成物体
-        Item obj = current.GetComponent<Item>();
+        Item obj = Instantiate(theItem);
 
         current = obj.gameObject;
         current.GetComponent<BoxCollider2D>().enabled = false;
@@ -67,6 +67,6 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         isDragging = false;
         Destroy(gameObject);
         current.GetComponent<BoxCollider2D>().enabled = true;
-        FindFirstObjectByType<Player>().items.Remove(theItem);
+        FindFirstObjectByType<Player>().items -= 1;
     }
 }

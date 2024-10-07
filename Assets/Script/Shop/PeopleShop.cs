@@ -16,6 +16,10 @@ public class PeopleShop : MonoBehaviour
     {
         player = FindFirstObjectByType<Player>();
         RefleshShop();
+        for (int i = 0; i < 3; i++)
+        {
+
+        }
         itemUI.RefleshUI(player.items);
     }
     public void RefleshShop()
@@ -36,7 +40,7 @@ public class PeopleShop : MonoBehaviour
         if (player.Money >= item.price)
         {
             player.Money -= item.price;
-            player.items.Add(item);
+            player.items += 1;
             itemUI.RefleshUI(player.items);
         }
     }
