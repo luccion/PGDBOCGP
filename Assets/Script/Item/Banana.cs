@@ -23,23 +23,17 @@ public class Banana : Item
             return false;
         }
 
-
     }
     IEnumerator BlockCoroutine(ICreatureController creatureController)
     {
         isUsed = true;
-        creatureController.StateMachine.TransitionTo(CreatureState.BLOCK);
-        creatureController.SetSpeed(0);
         creatureController.Animator.SetTrigger("Roll");
-        creatureController.Animator.SetTrigger("Rolling");
-        yield return new WaitForSeconds(2f);
-        creatureController.Animator.SetTrigger("EndRoll");
-        yield return new WaitForSeconds(0.5f);
+        creatureController.StateMachine.TransitionTo(CreatureState.BLOCK);
+
+        creatureController.SetSpeed(0);
+        yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
         creatureController.StateMachine.TransitionTo(CreatureState.RUN);
-
-
-
         Debug.Log("oops");
     }
 
