@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     //本局游戏是否已经选择过
     [Header("chaser")]
     [SerializeField] CreatureController handObj;
+    public AudioManager audioManager;
     Hand hand;
     public bool IsSelect = false;
     // Start is called before the first frame update
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         hand = handObj.GetComponent<Hand>();
+        audioManager = gameObject.GetComponent<AudioManager>();
     }
     void Start()
     {
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //  Debug.Log("最后一名" + GetRank(5).Name);
+        //Debug.Log("最后一名" + GetRank(5).Name);
     }
     public List<CreatureController> GenerateCreature()
     {
@@ -117,14 +119,16 @@ public class GameManager : MonoBehaviour
     void OnWin(ICreatureController creatureController)
     {
         Debug.Log(creatureController.Name + "win");
+        audioManager.PlayWin();
         //hand.Reset();
-        StartCoroutine(StopAll(2, true));
+        StartCoroutine(StopAll(1, true));
     }
     void OnLose(ICreatureController creatureController)
     {
+        audioManager.PlayDead();
         // hand.Reset();
         Debug.Log(creatureController.Name + "lose");
-        StartCoroutine(StopAll(2, false));
+        StartCoroutine(StopAll(1, false));
     }
     public void ResetGame()
     {
@@ -172,6 +176,7 @@ public class GameManager : MonoBehaviour
         handObj.StateMachine.TransitionTo(CreatureState.IDLE);
         handObj.SetSpeed(0);
         hand.Reset();
+
     }
     CreatureController GetRank(int rank)
     {

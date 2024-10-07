@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    [SerializeField] AudioClip grasp;
     [SerializeField] Vector3 offset;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -24,5 +25,10 @@ public class Hand : MonoBehaviour
     {
         startPos = transform.position;
     }
+    public void PlayGrasp()
+    {
+        GetComponent<AudioSource>().PlayOneShot(grasp);
+    }
+
 
 }

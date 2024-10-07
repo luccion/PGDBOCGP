@@ -13,10 +13,10 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     [SerializeField] Image image;
     bool isDragging = false;
     GameObject current;
+    [SerializeField] GameManager gameManager;
     private void Start()
     {
-
-
+        gameManager = FindFirstObjectByType<GameManager>();
     }
     public void Load(Item theItem)
     {
@@ -26,6 +26,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public void OnBeginDrag(PointerEventData eventData)
     {
 
+        if (theItem == null) return;
         image.color = Color.clear;
         current = null;
         isDragging = true;
@@ -61,6 +62,7 @@ public class ItemButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public void OnEndDrag(PointerEventData eventData)
     {
 
+        gameManager.audioManager.PlayOneshot(theItem.audioClip);
         isDragging = false;
         Destroy(gameObject);
         current.GetComponent<BoxCollider2D>().enabled = true;

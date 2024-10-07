@@ -89,8 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2120bce43a2279649a3154559743bd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theItem: {fileID: 1650598608099182602, guid: dc082c960ae431244bc0dfa01da19438, type: 3}
+  theItem: {fileID: 0}
   image: {fileID: 1079042350158705433}
+  gameManager: {fileID: 0}
 --- !u!61 &1796427905655135894
 BoxCollider2D:
   m_ObjectHideFlags: 0

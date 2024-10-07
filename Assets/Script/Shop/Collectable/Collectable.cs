@@ -10,9 +10,10 @@ public class Collectable : MonoBehaviour
     public UnityAction<Item> BuyEvent;
     public Item item;
     [SerializeField] SpriteRenderer spriteRenderer;
-    private void Start()
+    private void Awake()
     {
         player = FindAnyObjectByType<Player>();
+        //spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     public void Load(Item item)
     {

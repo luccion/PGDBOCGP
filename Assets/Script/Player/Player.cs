@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] Gamble gamble;
     [SerializeField] TMP_Text moneyText;
     [SerializeField] Button reset;
+    [SerializeField] AudioManager audioManager;
 
     public List<Item> items = new List<Item>();
     public int Money
@@ -49,10 +50,12 @@ public class Player : MonoBehaviour
         {
             Money += gamble.money * 2;
         }
+        audioManager.PlayGetMoney();
 
     }
     public void SetNewGamble(ICreatureController creatureController)
     {
+        audioManager.PlayDual();
         GameManager gameManager = FindAnyObjectByType<GameManager>();
         gameManager.IsSelect = true;
         gamble = new();

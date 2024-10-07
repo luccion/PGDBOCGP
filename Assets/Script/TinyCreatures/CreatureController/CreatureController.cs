@@ -9,7 +9,8 @@ public class CreatureController : MonoBehaviour, ICreatureController
     [Header("组件")] Rigidbody2D rb;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer unit;
-
+    [SerializeField] AudioManager audioManagerPrefab;
+    AudioManager audioManager;
 
     [Header("显示")]
     [SerializeField] EyeType eyeType = EyeType.BigEyes;
@@ -54,6 +55,7 @@ public class CreatureController : MonoBehaviour, ICreatureController
 
     private void Awake()
     {
+        audioManager = Instantiate(audioManagerPrefab, transform);
         inputControl = new PlayerInputActions();
         inputControl.Enable();
         rb = GetComponent<Rigidbody2D>();
@@ -221,5 +223,28 @@ public class CreatureController : MonoBehaviour, ICreatureController
     {
         return speed / maxSpeed;
     }
+    #region 
+    public void PlayJump()
+    {
+        audioManager.PlayJump();
+    }
+
+    public void PlayOnBanana()
+    {
+        audioManager.PlayOnBanana();
+    }
+
+
+    public void PlayDead()
+    {
+        audioManager.PlayDead();
+    }
+
+    public void PlayRun()
+    {
+        audioManager.PlayRun();
+    }
+
+    #endregion 
 }
 

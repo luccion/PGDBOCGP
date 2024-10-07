@@ -123,6 +123,7 @@ MonoBehaviour:
   isUsed: 0
   spriteRenderer: {fileID: 3949674478494112705}
   ID: 1
+  audioClip: {fileID: 8300000, guid: f5dbc635dd880a14e81af725023bb813, type: 3}
 --- !u!61 &2580836686936407168
 BoxCollider2D:
   m_ObjectHideFlags: 0

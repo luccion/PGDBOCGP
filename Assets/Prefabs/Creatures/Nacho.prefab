@@ -274,6 +274,7 @@ MonoBehaviour:
   tinyCreature: {fileID: 11400000, guid: b1080f5c39caa6b43955a8609a50941d, type: 2}
   animator: {fileID: 0}
   unit: {fileID: 0}
+  audioManagerPrefab: {fileID: 2708397938278716180, guid: c136b749f1e51094c9ccf6617ca0efa5, type: 3}
   eyeType: 3
   _name: 
   jumpForce: 0

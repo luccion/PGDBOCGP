@@ -8,6 +8,7 @@ public class PeopleShop : MonoBehaviour
     [SerializeField] Collectable collectablePrefab;
     [SerializeField] ItemUI itemUI;
     [SerializeField] Transform ShopPos;
+    [SerializeField] AudioManager audioManager;
     [SerializeField] int nodeCount = 10;  // 房间节点数量
     [SerializeField] int nodesize = 5;  // 房间节点大小
     Player player;
@@ -19,6 +20,7 @@ public class PeopleShop : MonoBehaviour
     }
     public void RefleshShop()
     {
+        itemUI.RefleshUI(player.items);
         for (int i = 0; i < nodeCount; i++)
         {
             int random = Random.Range(0, sellItems.Count);
@@ -30,6 +32,7 @@ public class PeopleShop : MonoBehaviour
     }
     public void OnBuy(Item item)
     {
+        audioManager.PlayMoney();
         if (player.Money >= item.price)
         {
             player.Money -= item.price;
