@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int money = 20;
-    [SerializeField] int GambleMoney = 10;
+    [SerializeField] int money = 5;
+    [SerializeField] int GambleMoney = 1;
     [SerializeField] SelectEvent selectEvent;
     [SerializeField] SelectEvent OnWin;
     [SerializeField] SelectEvent OnLose;
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
     {
         if (creatureController.IsSelect)
         {
-            Money += gamble.money * 2;
+            Money += 5;
         }
         audioManager.PlayGetMoney();
 
@@ -127,13 +127,9 @@ public class Player : MonoBehaviour
         gameManager.IsSelect = true;
         gamble = new();
         creatureController.IsSelect = true;
-        if (Money >= GambleMoney)
+        if (Money < GambleMoney)
         {
-
-        }
-        else
-        {
-            Money = 20;
+            gameManager.ResetGame();
         }
         gamble.money = GambleMoney;
         Money -= GambleMoney;

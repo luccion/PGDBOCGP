@@ -22,7 +22,6 @@ public class Collectable : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("sss");
         Buy();
     }
     public void Buy()

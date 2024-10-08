@@ -311,24 +311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8df30b8b764254b9f0c090077c8eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tinyCreature: {fileID: 11400000, guid: 83181cec0e0db37429b70715ad3b42b8, type: 2}
-  animator: {fileID: 770986494624139898}
-  unit: {fileID: 0}
-  eyeType: 0
-  _name: 
-  jumpForce: 0
-  speed: 0
-  maxSpeed: 0
-  acceleration: 0
-  lucky: 0
-  pickupRadius: 5
-  isMuteki: 0
-  boxSize: {x: 9.23, y: 11.1, z: 5}
+  grasp: {fileID: 0}
   offset: {x: 2.02, y: 6.73, z: 0}
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  stayTime: 1.5
+  animator: {fileID: 770986494624139898}
+  spriteRenderer: {fileID: 0}
 --- !u!1001 &2639083000971844450
 PrefabInstance:
   m_ObjectHideFlags: 0

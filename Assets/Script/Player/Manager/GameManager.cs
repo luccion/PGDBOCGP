@@ -181,14 +181,14 @@ public class GameManager : MonoBehaviour
             {
                 continue;
             }
-            yield return hand.FlytoKill(item);
+            yield return StartCoroutine(hand.FlytoKill(item));
         }
-        yield return new WaitForSeconds(1);
         handObj.StateMachine.TransitionTo(CreatureState.IDLE);
+        yield return new WaitForSeconds(1f);
         handObj.SetSpeed(0);
         hand.Reset();
-
     }
+
     CreatureController GetRank(int rank)
     {
         List<CreatureController> rankedObjects = tinyCreatures
