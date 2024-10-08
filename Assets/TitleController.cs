@@ -6,22 +6,19 @@ public class TitleController : MonoBehaviour
 {
 
     [SerializeField] Animator animator;
-    [SerializeField] Button gogoBtn;
-    [SerializeField] Button creditsBtn;
-    [SerializeField] Button backToTitleBtn;
-    // Start is called before the first frame update
-    void Start()
+
+
+    public void GoToTutorial()
     {
-
-
+        animator.SetTrigger("tutorial");
     }
+
     public void GoToTitle()
     {
         animator.SetTrigger("title");
     }
     public void GoToCredits()
     {
-        Debug.Log("ddddd");
         animator.SetTrigger("credits");
     }
 
