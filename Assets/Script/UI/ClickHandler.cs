@@ -11,9 +11,11 @@ public class ClickHandler : MonoBehaviour
     PlayerInputActions playerInputs;
     public VoidEvent ReadyEvent;
     public SelectEvent StartRunEvent;
-    [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
+    // [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] PointerUI pointer;
-    GameManager gameManager;
+    [SerializeField] GameCamera gameCamera;
+    [SerializeField] GameManager gameManager;
+
     private void OnEnable()
     {
         playerInputs.Player.Click.performed += OnClickPerformed;
@@ -40,9 +42,6 @@ public class ClickHandler : MonoBehaviour
     }
     private void OnClickPerformed(InputAction.CallbackContext context)
     {
-
-
-        //Debug.Log("ICancelHandler");
         // 检查是否点击在 UI 上
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -51,10 +50,13 @@ public class ClickHandler : MonoBehaviour
 
         // 获取点击的世界坐标
         Vector3 mousePosition = Mouse.current.position.ReadValue();
-        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+        worldPosition.z = 0;  // 将 z 坐标设置为 0，因为在 2D 中 z 坐标不重要
 
-        // 检查射线是否击中了某个物体
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        // 检查射线是否击中了某个 2D 物体
+        RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero);
+
+        if (hit.collider != null)
         {
             // 获得被点击的 GameObject
             GameObject clickedObject = hit.collider.gameObject;
@@ -65,7 +67,6 @@ public class ClickHandler : MonoBehaviour
             {
                 Debug.Log("Clicked on a Creature: " + creature.name);
                 HandleClickOnCreature(creature);
-
             }
             else
             {
@@ -101,9 +102,8 @@ public class ClickHandler : MonoBehaviour
     // 处理 Creature 类型物体的点击逻辑
     private void HandleClickOnCreature(ICreatureController creature)
     {
-        cinemachineVirtualCamera.Follow = creature.CreatureTransform;
+        gameCamera.Follow(creature.CreatureTransform);
         PointerUI obj = Instantiate(pointer, creature.CreatureTransform);
         obj.transform.localPosition = new Vector3(0, 4, 0);
-
     }
 }
