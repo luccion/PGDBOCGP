@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-
+        ResetMoney(Money);
     }
     public void GetMoney(ICreatureController creatureController)
     {
