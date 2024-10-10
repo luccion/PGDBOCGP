@@ -25,6 +25,11 @@ public class PeopleShop : MonoBehaviour
     public void RefleshShop()
     {
         itemUI.RefleshUI(player.items);
+        // 清除ShopPos下的所有子物体
+        foreach (Transform child in ShopPos)
+        {
+            Destroy(child.gameObject);
+        }
         for (int i = 0; i < nodeCount; i++)
         {
             int random = Random.Range(0, sellItems.Count);

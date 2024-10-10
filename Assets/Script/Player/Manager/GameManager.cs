@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] SelectEvent OnStartRun;
     [SerializeField] SelectEvent OnWinEvent;
     [SerializeField] SelectEvent OnLoseEvent;
-    [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
+    // [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] GameCamera gameCamera;
     [SerializeField] Transform initFollow;
     //本局游戏是否已经选择过
     [Header("chaser")]
@@ -156,7 +157,7 @@ public class GameManager : MonoBehaviour
         handObj.StateMachine.TransitionTo(CreatureState.IDLE);
         handObj.SetSpeed(0);
         hand.Reset();
-        cinemachineVirtualCamera.Follow = initFollow;
+        gameCamera.Follow(initFollow);
         IsSelect = false;
         OnReady.Invoke();
     }
@@ -164,7 +165,7 @@ public class GameManager : MonoBehaviour
     {
 
         yield return new WaitForSeconds(second);
-        cinemachineVirtualCamera.Follow = handObj.transform;
+        gameCamera.Follow(handObj.transform);
         yield return KillAll(tinyCreatures, isWin);
         ResetGame();
     }

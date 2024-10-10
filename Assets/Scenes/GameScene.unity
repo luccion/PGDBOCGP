@@ -2516,10 +2516,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.05032258
-    y: -0.050458718
-    width: 1.1010753
-    height: 1.1009175
+    x: -0.47746366
+    y: -0.47826087
+    width: 1.9556911
+    height: 1.9565217
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -10180,7 +10180,7 @@ MonoBehaviour:
   OnStartRun: {fileID: 11400000, guid: eba7962fe317ced46a413a16fd6d88bd, type: 2}
   OnWinEvent: {fileID: 11400000, guid: 23ab3557f52b16d43866b6a98ba301f0, type: 2}
   OnLoseEvent: {fileID: 11400000, guid: e83bdbbe9ec6e0442b8ca23f1770828f, type: 2}
-  cinemachineVirtualCamera: {fileID: 959906550}
+  gameCamera: {fileID: 519420035}
   initFollow: {fileID: 94338672}
   handObj: {fileID: 376648515}
   audioManager: {fileID: 2012442975}
