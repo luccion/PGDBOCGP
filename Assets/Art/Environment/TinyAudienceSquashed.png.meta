@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8905a419e8ede048a5c70ce336d1f3f
+guid: 8657b6ec67d6de44d9cac8bc303366ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,10 +69,23 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,102 +119,152 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ready_0
+      name: TinyAudienceSquashed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 772
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1542cba65888c2b4d94586a9b69d6890
-      internalID: -1178846070
+      spriteID: a8ebcd5805f37724caf08dba82ed2cc9
+      internalID: -2131395866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ready_1
+      name: TinyAudienceSquashed_1
       rect:
         serializedVersion: 2
-        x: 772
+        x: 41
         y: 0
-        width: 772
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a1d62d205d6b244d8be046dfa4f5d87
-      internalID: 843460531
+      spriteID: eae54bb785ebb584ebcb529dc1cda7ca
+      internalID: 726600692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ready_2
+      name: TinyAudienceSquashed_2
       rect:
         serializedVersion: 2
-        x: 1544
+        x: 82
         y: 0
-        width: 772
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d6f0907d4a1d124a8d5ba5d63113111
-      internalID: -1397552094
+      spriteID: cfd9482789c3f604f81bc51b1b214d3e
+      internalID: -1488019330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ready_3
+      name: TinyAudienceSquashed_3
       rect:
         serializedVersion: 2
-        x: 2316
+        x: 123
         y: 0
-        width: 772
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e291c49bba31d9541add064ea66190c6
-      internalID: 1984960754
+      spriteID: 82a2d59095962a342937626d35096a53
+      internalID: -184077296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyAudienceSquashed_4
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3f23c21f70d1f4d8a1af13c3ddbf92
+      internalID: -1314642973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyAudienceSquashed_5
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 0
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e97cd0ebe7f02142a275daccdcbf53f
+      internalID: -1359969539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TinyAudienceSquashed_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22284e1637c3dc741b2a5e9d0c64561a
+      internalID: 60427252
       vertices: []
       indices: 
       edges: []
@@ -217,10 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ready_0: -1178846070
-      Ready_1: 843460531
-      Ready_2: -1397552094
-      Ready_3: 1984960754
+      TinyAudienceSquashed_0: -2131395866
+      TinyAudienceSquashed_1: 726600692
+      TinyAudienceSquashed_2: -1488019330
+      TinyAudienceSquashed_3: -184077296
+      TinyAudienceSquashed_4: -1314642973
+      TinyAudienceSquashed_5: -1359969539
+      TinyAudienceSquashed_6: 60427252
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

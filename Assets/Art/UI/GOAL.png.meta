@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 942
-        width: 1218
-        height: 314
+        y: 0
+        width: 122
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: GOAL_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 628
-        width: 1218
-        height: 314
+        x: 122
+        y: 0
+        width: 122
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: GOAL_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 314
-        width: 1218
-        height: 314
+        x: 244
+        y: 0
+        width: 122
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: GOAL_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 366
         y: 0
-        width: 1218
-        height: 314
+        width: 122
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
