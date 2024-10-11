@@ -78,7 +78,7 @@ public class TinyAudiencesSpawner : MonoBehaviour
         HideAreaSprite();
 
     }
-
+#if UNITY_EDITOR
     [ContextMenu("Respawn Audiences")]
     public void RespawnAudiences()
     {
@@ -104,6 +104,8 @@ public class TinyAudiencesSpawner : MonoBehaviour
             }
         }
     }
+#endif
 }
+
 
 
